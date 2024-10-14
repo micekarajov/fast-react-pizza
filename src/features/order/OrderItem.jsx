@@ -1,13 +1,16 @@
-function OrderItem({ item, isLoadingIngredients, ingredients }) {
-  const { quantity, name, totalPrice } = item;
+import { formatCurrency } from '../../utils/helpers';
 
+function OrderItem({ item, isLoadingIngredients, ingredients }) {
+  const { name, quantity, totalPrice } = item;
+
+  console.log(item);
   return (
-    <li>
-      <div>
+    <li className="py-3">
+      <div className="text-md flex items-center justify-between gap-4">
         <p>
-          <span>{quantity}&times;</span> {name}
+          <span className="font-bold">{quantity}&times;</span> {name}
         </p>
-        <p>{formatCurrency(totalPrice)}</p>
+        <p className="font-bold">{formatCurrency(totalPrice)}</p>
       </div>
     </li>
   );
